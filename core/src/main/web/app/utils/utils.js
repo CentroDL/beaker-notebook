@@ -103,7 +103,7 @@
         return angularUtils.timeout(func,ms);
       },
       cancelTimeout: function(promise) {
-        return angularUtils.cancelTimeout(promise);  
+        return angularUtils.cancelTimeout(promise);
       },
 
       // beaker server involved utils
