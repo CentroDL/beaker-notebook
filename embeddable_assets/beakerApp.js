@@ -146,6 +146,24 @@ __p += '\n<header class="navbar-fixed-top bkr">\n  <div class="navbar navbar-inv
 }
 return __p
 }})();
+(function() {(window["JST"] = window["JST"] || {})["mainapp/components/pluginmanager/pluginmanager"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '\n<div class="bkr">\n  <div class="modal-header fixed bkr" style="height: 69px">\n    <h1 class="bkr">Language Manager</h1>\n  </div>\n  <div class="modal-body fixed modal-large plugin-manager bkr" style="padding-top: 69px; padding-bottom: 68px">\n    <div class="languages clearfix bkr">\n      <button class="btn btn-default language-icon-button bkr" ng-click="evalTabOp.togglePlugin(pluginName)" ng-repeat="(pluginName, pluginStatus) in evalTabOp.getEvaluatorStatuses()" ng-class="pluginName">\n        <span ng-class="\'plugin-\' + pluginStatus" class="plugin-status bkr">●</span>\n        <bk-language-logo bg-color="{{getEvaluatorDetails(pluginName).bgColor}}" name="{{getEvaluatorDetails(pluginName).shortName}}" fg-color="{{getEvaluatorDetails(pluginName).fgColor}}" border-color="{{getEvaluatorDetails(pluginName).borderColor}}" class="bkr">\n        </bk-language-logo>\n\n        {{pluginName}}\n      </button>\n      <button ng-click="evalTabOp.showURL = !evalTabOp.showURL" class="btn btn-default bkr">\n        From URL...\n      </button>\n    </div>\n    <div ng-show="evalTabOp.showURL" class="input-group addeval bkr">\n      <input type="text" bk-enter="evalTabOp.togglePlugin()" ng-model="evalTabOp.newPluginNameOrUrl" class="bkr">\n      <button class="btn btn-default bkr" ng-click="evalTabOp.togglePlugin()">Add Plugin from URL</button>\n    </div>\n    <div ng-show="evalTabOp.showSecurityWarning" class="bkr">\n      <div class="modal-body error-title body-box bkr">\n        <p class="bkr">Are you sure you want to load this plugin from an external URL?</p>\n        <button class="btn btn-default right bkr" ng-click="evalTabOp.showSecurityWarning = false; evalTabOp.showURL=false; evalTabOp.newPluginNameOrUrl=&quot;&quot;">Cancel</button>\n        <button class="btn btn-default right bkr" ng-click="evalTabOp.showSecurityWarning = false; evalTabOp.forceLoad = true; evalTabOp.togglePlugin()">OK</button>\n      </div>\n      <p class="bkr"><br class="bkr"></p>\n    </div>\n    <div ng-show="evalTabOp.showWarning" class="bkr">\n      <div class="modal-body error-title body-box bkr">\n        <p class="bkr">Cannot remove plugin currently used by a code cell in the notebook.<br class="bkr">\n        Delete those cells and try again.</p>\n        <button class="btn btn-default right bkr" ng-click="evalTabOp.showWarning = false">OK</button>\n      </div>\n      <p class="bkr"><br class="bkr"></p>\n    </div>\n    <tabset class="bkr">\n      <tab ng-repeat="(evaluatorName, evaluator) in evalTabOp.getEvaluatorsWithSpec()" heading="{{evaluatorName}}" class="bkr">\n        <bk-plugin-manager-evaluator-settings class="bkr"></bk-plugin-manager-evaluator-settings>\n      </tab>\n    </tabset>\n  </div>\n  <div class="modal-footer fixed bkr" style="height: 68px"> \n    <button class="btn btn-primary language-manager-close-button bkr" ng-click="doClose()">Close</button>\n  </div>\n</div>';
+
+}
+return __p
+}})();
+(function() {(window["JST"] = window["JST"] || {})["mainapp/components/pluginmanager/pluginmanager_evaluator_settings"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '\n\n<div ng-repeat="property in properties" class="form-group language-option property clearfix bkr">\n  <label class="bkr">{{ property.name }}</label>\n  <textarea class="form-control bkr" ng-model="evaluator.settings[property.key]"></textarea>\n  <button class="btn btn-default pull-right set bkr" ng-click="set(property.key)">Set</button>\n</div>\n<div ng-repeat="action in actions" class="action language-option clearfix bkr">\n  <button class="btn btn-default bkr" ng-click="evaluator.perform(action.key)">{{ action.name }}</button>\n</div>';
+
+}
+return __p
+}})();
 (function() {(window["JST"] = window["JST"] || {})["mainapp/components/notebook/cell"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -259,24 +277,6 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '\n\n<p class="depth-indicator bkr">{{getFullIndex()}}</p>\n<div class="textcell-wrapper bkr" ng-click="edit()">\n  <div class="editable-text bkr" contenteditable="{{ isEditable() ? true : false }}" style="min-height: 14px; min-width: 14px"></div>\n</div>';
-
-}
-return __p
-}})();
-(function() {(window["JST"] = window["JST"] || {})["mainapp/components/pluginmanager/pluginmanager"] = function(obj) {
-obj || (obj = {});
-var __t, __p = '', __e = _.escape;
-with (obj) {
-__p += '\n<div class="bkr">\n  <div class="modal-header fixed bkr" style="height: 69px">\n    <h1 class="bkr">Language Manager</h1>\n  </div>\n  <div class="modal-body fixed modal-large plugin-manager bkr" style="padding-top: 69px; padding-bottom: 68px">\n    <div class="languages clearfix bkr">\n      <button class="btn btn-default language-icon-button bkr" ng-click="evalTabOp.togglePlugin(pluginName)" ng-repeat="(pluginName, pluginStatus) in evalTabOp.getEvaluatorStatuses()" ng-class="pluginName">\n        <span ng-class="\'plugin-\' + pluginStatus" class="plugin-status bkr">●</span>\n        <bk-language-logo bg-color="{{getEvaluatorDetails(pluginName).bgColor}}" name="{{getEvaluatorDetails(pluginName).shortName}}" fg-color="{{getEvaluatorDetails(pluginName).fgColor}}" border-color="{{getEvaluatorDetails(pluginName).borderColor}}" class="bkr">\n        </bk-language-logo>\n\n        {{pluginName}}\n      </button>\n      <button ng-click="evalTabOp.showURL = !evalTabOp.showURL" class="btn btn-default bkr">\n        From URL...\n      </button>\n    </div>\n    <div ng-show="evalTabOp.showURL" class="input-group addeval bkr">\n      <input type="text" bk-enter="evalTabOp.togglePlugin()" ng-model="evalTabOp.newPluginNameOrUrl" class="bkr">\n      <button class="btn btn-default bkr" ng-click="evalTabOp.togglePlugin()">Add Plugin from URL</button>\n    </div>\n    <div ng-show="evalTabOp.showSecurityWarning" class="bkr">\n      <div class="modal-body error-title body-box bkr">\n        <p class="bkr">Are you sure you want to load this plugin from an external URL?</p>\n        <button class="btn btn-default right bkr" ng-click="evalTabOp.showSecurityWarning = false; evalTabOp.showURL=false; evalTabOp.newPluginNameOrUrl=&quot;&quot;">Cancel</button>\n        <button class="btn btn-default right bkr" ng-click="evalTabOp.showSecurityWarning = false; evalTabOp.forceLoad = true; evalTabOp.togglePlugin()">OK</button>\n      </div>\n      <p class="bkr"><br class="bkr"></p>\n    </div>\n    <div ng-show="evalTabOp.showWarning" class="bkr">\n      <div class="modal-body error-title body-box bkr">\n        <p class="bkr">Cannot remove plugin currently used by a code cell in the notebook.<br class="bkr">\n        Delete those cells and try again.</p>\n        <button class="btn btn-default right bkr" ng-click="evalTabOp.showWarning = false">OK</button>\n      </div>\n      <p class="bkr"><br class="bkr"></p>\n    </div>\n    <tabset class="bkr">\n      <tab ng-repeat="(evaluatorName, evaluator) in evalTabOp.getEvaluatorsWithSpec()" heading="{{evaluatorName}}" class="bkr">\n        <bk-plugin-manager-evaluator-settings class="bkr"></bk-plugin-manager-evaluator-settings>\n      </tab>\n    </tabset>\n  </div>\n  <div class="modal-footer fixed bkr" style="height: 68px"> \n    <button class="btn btn-primary language-manager-close-button bkr" ng-click="doClose()">Close</button>\n  </div>\n</div>';
-
-}
-return __p
-}})();
-(function() {(window["JST"] = window["JST"] || {})["mainapp/components/pluginmanager/pluginmanager_evaluator_settings"] = function(obj) {
-obj || (obj = {});
-var __t, __p = '', __e = _.escape;
-with (obj) {
-__p += '\n\n<div ng-repeat="property in properties" class="form-group language-option property clearfix bkr">\n  <label class="bkr">{{ property.name }}</label>\n  <textarea class="form-control bkr" ng-model="evaluator.settings[property.key]"></textarea>\n  <button class="btn btn-default pull-right set bkr" ng-click="set(property.key)">Set</button>\n</div>\n<div ng-repeat="action in actions" class="action language-option clearfix bkr">\n  <button class="btn btn-default bkr" ng-click="evaluator.perform(action.key)">{{ action.name }}</button>\n</div>';
 
 }
 return __p
@@ -1811,6 +1811,9 @@ return __p
       generateId: function(length) {
         return bkUtils.generateId(length);
       },
+      serverUrl: function(path) {
+        return bkUtils.serverUrl(path);
+      },
       httpGet: function(url, data) {
         return bkUtils.httpGet(url, data);
       },
@@ -1896,7 +1899,7 @@ return __p
 
      
       locatePluginService: function(id, locator) {
-        return bkUtils.httpGet("../beaker/rest/plugin-services/" + id,
+        return bkUtils.httpGet(bkUtils.serverUrl("beaker/rest/plugin-services/" + id),
             locator);
       },
       getEvaluatorFactory: function(shellConstructorPromise) {
@@ -4914,7 +4917,7 @@ return __p
       if (_.isDate(v)) {
         var o = {}
         o.type = "Date";
-        o.timestamp = v.getTime();
+        o.timestamp = v.valueOf();
         return o
       }
 
@@ -7504,7 +7507,11 @@ return __p
           controller: function($scope) {
             $scope.getDate = function() {
               var model = $scope.model.getCellModel();
-              return (model && model.timestamp) ? moment(model.timestamp).format("YYYYMMDD HH:mm:ss.SSS") : model;
+              if (model && model.timestamp) {
+                var m = moment(model.timestamp);
+                return m.format("YYYYMMDD HH:mm:ss.SSS ZZ");
+              }
+              return model;
             };
           }
         },
@@ -8745,10 +8752,13 @@ return __p
 (function() {
   'use strict';
   var module = angular.module('bk.cometdUtils', []);
-  module.factory('cometdUtils', function () {
-    $.cometd.init({
+  module.factory('cometdUtils', ['$sessionStorage', function($sessionStorage) {
+    if ($sessionStorage.user) {
+      $.cometd.init("/beaker/" + $sessionStorage.user.id + "/cometd");
+    }
+    else {
       url: document.baseURI+'cometd/'
-    });
+    }
     var _statusListener;
     return {
       addConnectedStatusListener: function (cb) {
@@ -8770,7 +8780,7 @@ return __p
         return $.cometd.disconnect();
       }
     };
-  });
+  }]);
 })();
 
 (function() {
@@ -8957,11 +8967,11 @@ return __p
 
 (function() {
   'use strict';
-  var module = angular.module('bk.outputLog', ['bk.angularUtils', 'bk.cometdUtils']);
-  module.factory('bkOutputLog', function (angularUtils, cometdUtils) {
+  var module = angular.module('bk.outputLog', ['bk.utils', 'bk.cometdUtils']);
+  module.factory('bkOutputLog', function (bkUtils, cometdUtils) {
     return {
       getLog: function (cb) {
-        angularUtils.httpGet("../beaker/rest/outputlog/get", {})
+        bkUtils.httpGet(bkUtils.serverUrl("beaker/rest/outputlog/get"), {})
             .success(cb)
             .error(function () {
               console.log("failed to get output log");
@@ -9068,11 +9078,11 @@ return __p
 
 (function() {
   'use strict';
-  var module = angular.module('bk.session', ['bk.angularUtils']);
-    module.factory('bkSession', function(angularUtils) {
+  var module = angular.module('bk.session', ['bk.utils']);
+    module.factory('bkSession', function(bkUtils) {
     var backupSession = function(sessionId, sessionData) {
-      var deferred = angularUtils.newDeferred();
-      angularUtils.httpPost("../beaker/rest/session-backup/backup/" + sessionId, sessionData)
+      var deferred = bkUtils.newDeferred();
+      bkUtils.httpPost(bkUtils.serverUrl("beaker/rest/session-backup/backup/" + sessionId), sessionData)
           .success(function(data) {
             deferred.resolve();
           })
@@ -9083,8 +9093,8 @@ return __p
       return deferred.promise;
     };
     var getSessions = function() {
-      var deferred = angularUtils.newDeferred();
-      angularUtils.httpGet("../beaker/rest/session-backup/getExistingSessions")
+      var deferred = bkUtils.newDeferred();
+      bkUtils.httpGet(bkUtils.serverUrl("beaker/rest/session-backup/getExistingSessions"))
           .success(function(sessions) {
             deferred.resolve(sessions);
           })
@@ -9094,8 +9104,8 @@ return __p
       return deferred.promise;
     };
     var loadSession = function(sessionId) {
-      var deferred = angularUtils.newDeferred();
-      angularUtils.httpGet("../beaker/rest/session-backup/load", {sessionid: sessionId})
+      var deferred = bkUtils.newDeferred();
+      bkUtils.httpGet(bkUtils.serverUrl("beaker/rest/session-backup/load"), {sessionid: sessionId})
           .success(function(session, status) {
             deferred.resolve(session);
           })
@@ -9105,8 +9115,8 @@ return __p
       return deferred.promise;
     };
     var closeSession = function(sessionId) {
-      var deferred = angularUtils.newDeferred();
-      angularUtils.httpPost("../beaker/rest/session-backup/close", {sessionid: sessionId})
+      var deferred = bkUtils.newDeferred();
+      bkUtils.httpPost(bkUtils.serverUrl("beaker/rest/session-backup/close"), {sessionid: sessionId})
           .success(function(ret) {
             deferred.resolve(sessionId);
           })
@@ -9116,8 +9126,8 @@ return __p
       return deferred.promise;
     };
     var recordLoadedPlugin = function(pluginName, pluginUrl) {
-      angularUtils.httpPost(
-          "../beaker/rest/session-backup/addPlugin",
+      bkUtils.httpPost(
+          bkUtils.serverUrl("beaker/rest/session-backup/addPlugin"),
           {pluginname: pluginName, pluginurl: pluginUrl})
           .success(function(ret) {
            
@@ -9127,8 +9137,8 @@ return __p
           });
     };
     var getPlugins = function() {
-      var deferred = angularUtils.newDeferred();
-      angularUtils.httpGet("../beaker/rest/session-backup/getExistingPlugins", {})
+      var deferred = bkUtils.newDeferred();
+      bkUtils.httpGet(bkUtils.serverUrl("beaker/rest/session-backup/getExistingPlugins"), {})
           .success(function(plugins) {
             deferred.resolve(plugins);
           })
@@ -9258,7 +9268,14 @@ return __p
   ]);
     module.factory('bkUtils', function(commonUtils, angularUtils, bkTrack, cometdUtils) {
 
+    var serverRoot = "../";
+    function serverUrl(path) {
+      return serverRoot + path;
+    }
+
     var bkUtils = {
+      serverUrl: serverUrl,
+
      
       log: function(event, obj) {
         bkTrack.log(event, obj);
@@ -9328,34 +9345,38 @@ return __p
         return angularUtils.timeout(func,ms);
       },
       cancelTimeout: function(promise) {
-        return angularUtils.cancelTimeout(promise);  
+        return angularUtils.cancelTimeout(promise);
       },
-      
+
+      setServerRoot: function(url) {
+        serverRoot = url;
+      },
+
      
       getHomeDirectory: function() {
         var deferred = angularUtils.newDeferred();
-        this.httpGet("../beaker/rest/file-io/getHomeDirectory")
+        this.httpGet(serverUrl("beaker/rest/file-io/getHomeDirectory"))
             .success(deferred.resolve)
             .error(deferred.reject);
         return deferred.promise;
       },
       getVersionInfo: function() {
         var deferred = angularUtils.newDeferred();
-        this.httpGet("../beaker/rest/util/getVersionInfo")
+        this.httpGet(serverUrl("beaker/rest/util/getVersionInfo"))
             .success(deferred.resolve)
             .error(deferred.reject);
         return deferred.promise;
       },
       getStartUpDirectory: function() {
         var deferred = angularUtils.newDeferred();
-        this.httpGet("../beaker/rest/file-io/getStartUpDirectory")
+        this.httpGet(serverUrl("beaker/rest/file-io/getStartUpDirectory"))
             .success(deferred.resolve)
             .error(deferred.reject);
         return deferred.promise;
       },
       getDefaultNotebook: function() {
         var deferred = angularUtils.newDeferred();
-        angularUtils.httpGet("../beaker/rest/util/getDefaultNotebook").
+        angularUtils.httpGet(serverUrl("beaker/rest/util/getDefaultNotebook")).
             success(function(data) {
               deferred.resolve(angular.fromJson(data));
             }).
@@ -9373,7 +9394,7 @@ return __p
       },
       loadFile: function(path) {
         var deferred = angularUtils.newDeferred();
-        angularUtils.httpGet("../beaker/rest/file-io/load", {path: path})
+        angularUtils.httpGet(serverUrl("beaker/rest/file-io/load"), {path: path})
             .success(function(content) {
               if (!_.isString(content)) {
                
@@ -9393,7 +9414,7 @@ return __p
           var queryParams = {};
         }
         else {
-          var loadingUri = "../beaker/rest/http-proxy/load";
+          var loadingUri = serverUrl("beaker/rest/http-proxy/load");
           var queryParams = {url: logicalUrl};
           var headers = {};
         }
@@ -9414,11 +9435,11 @@ return __p
       saveFile: function(path, contentAsJson, overwrite) {
         var deferred = angularUtils.newDeferred();
         if (overwrite) {
-          angularUtils.httpPost("../beaker/rest/file-io/save", {path: path, content: contentAsJson})
+          angularUtils.httpPost(serverUrl("beaker/rest/file-io/save"), {path: path, content: contentAsJson})
               .success(deferred.resolve)
               .error(deferred.reject);
         } else {
-          angularUtils.httpPost("../beaker/rest/file-io/saveIfNotExists", {path: path, content: contentAsJson})
+          angularUtils.httpPost(serverUrl("beaker/rest/file-io/saveIfNotExists"), {path: path, content: contentAsJson})
               .success(deferred.resolve)
               .error(function(data, status, header, config) {
                 if (status === 409) {
